@@ -28,7 +28,6 @@
 
 const request = require('request');
 
-
 /**
  * Makes an API request and returns a Promise containing the result.
  * @param url The url to make an API request to.
@@ -57,21 +56,21 @@ const person2Promise = makePromise('https://swapi.co/api/people/2')
 const person3Promise = makePromise('https://swapi.co/api/people/3')
 
 /* Uncomment me! #1 */
-// person1Promise.then(function(personResult) {
-//     console.log(`Resulting person's name: ${personResult.name}`);
-// }).catch(function(err) {
-//     console.log("Got an error!")
-//     console.log(err);
-// });
+person1Promise.then(function(personResult) {
+    console.log(`Resulting person's name: ${personResult.name}`);
+}).catch(function(err) {
+    console.log("Got an error!")
+    console.log(err);
+});
 
 /* Uncomment me! #2 */
-// Promise.all([person1Promise, person2Promise, person3Promise])
-//     .then(function(results) {
-//         for (let i = 0; i < 3; i++) {
-//             console.log(`Person ${i+1}'s name: ${results[i].name}`)
-//         }
-//     })
-//     .catch(function(err) {
-//         console.log('Got an error!')
-//         console.log(err)
-//     })
+Promise.all([person1Promise, person2Promise, person3Promise])
+    .then(function(results) {
+        for (let i = 0; i < 3; i++) {
+            console.log(`Person ${i+1}'s name: ${results[i].name}`)
+        }
+    })
+    .catch(function(err) {
+        console.log('Got an error!')
+        console.log(err)
+    })
